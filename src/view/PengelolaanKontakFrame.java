@@ -30,6 +30,7 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
      */
     public PengelolaanKontakFrame() {
         initComponents();
+        setLocationRelativeTo(null);
         
         controller = new KontakController(); 
         model = new DefaultTableModel(new String[] 
@@ -65,22 +66,41 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
         btnImport = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblKontak = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplikasi Pengelolaan Kontak");
 
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("APLIKASI PENGELOLAAN  KONTAK ");
         jPanel1.add(jLabel1);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.NORTH);
 
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nama Kontak ");
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nomor Telepon");
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Kategori ");
 
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Pencarian ");
 
         txtPencarian.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -91,6 +111,8 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
 
         cmbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Keluarga ", "Teman ", "Kantor " }));
 
+        btnTambah.setBackground(new java.awt.Color(51, 153, 0));
+        btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/tambah.png"))); // NOI18N
         btnTambah.setText("Tambah");
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +120,7 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
             }
         });
 
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/edit.png"))); // NOI18N
         btnEdit.setText("Edit");
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +128,8 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
             }
         });
 
+        btnHapus.setBackground(new java.awt.Color(204, 0, 0));
+        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/trash.png"))); // NOI18N
         btnHapus.setText("Hapus");
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,9 +137,21 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
             }
         });
 
+        btnExport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/export.png"))); // NOI18N
         btnExport.setText("Export");
+        btnExport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportActionPerformed(evt);
+            }
+        });
 
+        btnImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/import.png"))); // NOI18N
         btnImport.setText("Import");
+        btnImport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImportActionPerformed(evt);
+            }
+        });
 
         tblKontak.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,6 +171,14 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblKontak);
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logout.png"))); // NOI18N
+        jButton1.setText("Keluar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -141,11 +186,12 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnExport)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnImport))
+                        .addGap(33, 33, 33)
+                        .addComponent(btnImport)
+                        .addGap(27, 27, 27)
+                        .addComponent(jButton1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -155,17 +201,19 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNama)
-                            .addComponent(cmbKategori, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(btnTambah, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                                .addComponent(btnEdit)
-                                .addGap(37, 37, 37)
-                                .addComponent(btnHapus))
+                            .addComponent(cmbKategori, 0, 324, Short.MAX_VALUE)
                             .addComponent(txtNomorTelepon)
-                            .addComponent(txtPencarian))))
+                            .addComponent(txtPencarian)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(btnTambah)
+                .addGap(43, 43, 43)
+                .addComponent(btnEdit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnHapus)
+                .addGap(24, 24, 24))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,11 +231,10 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(cmbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnHapus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnTambah)
-                        .addComponent(btnEdit)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTambah)
+                    .addComponent(btnEdit)
+                    .addComponent(btnHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -197,8 +244,9 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExport)
-                    .addComponent(btnImport))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addComponent(btnImport)
+                    .addComponent(jButton1))
+                .addGap(20, 20, 20))
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -234,6 +282,34 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_tblKontakMouseClicked
+
+    private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportActionPerformed
+        // TODO add your handling code here:
+         exportToCSV(); 
+    }//GEN-LAST:event_btnExportActionPerformed
+
+    private void btnImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportActionPerformed
+        // TODO add your handling code here:
+        importFromCSV(); 
+    }//GEN-LAST:event_btnImportActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int pilihan = JOptionPane.showConfirmDialog(
+            this,
+            "Apakah Anda yakin ingin keluar dari aplikasi?",
+            "Konfirmasi Keluar",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (pilihan == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(this, "Terima kasih telah menggunakan aplikasi ini!");
+            System.exit(0); // keluar jika pengguna memilih "Ya"
+        } else {
+            // jika memilih "Tidak", tidak melakukan apa-apa
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void loadContacts() {  
         try { 
@@ -389,6 +465,153 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
         } 
     }
     
+    private void exportToCSV() { 
+        JFileChooser fileChooser = new JFileChooser(); 
+        fileChooser.setDialogTitle("Simpan File CSV"); 
+        int userSelection = fileChooser.showSaveDialog(this); 
+        if (userSelection == JFileChooser.APPROVE_OPTION) { 
+            File fileToSave = fileChooser.getSelectedFile(); 
+
+            // Tambahkan ekstensi .csv jika pengguna tidak menambahkannya 
+            if (!fileToSave.getAbsolutePath().endsWith(".csv")) { 
+                fileToSave = new File(fileToSave.getAbsolutePath() + ".csv"); 
+            } 
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileToSave))) { 
+                writer.write("ID,Nama,Nomor Telepon,Kategori\n"); // Header CSV 
+                for (int i = 0; i < model.getRowCount(); i++) { 
+                    writer.write( 
+                        model.getValueAt(i, 0) + "," + 
+                        model.getValueAt(i, 1) + "," + 
+                        model.getValueAt(i, 2) + "," + 
+                        model.getValueAt(i, 3) + "\n" 
+                    ); 
+                } 
+                JOptionPane.showMessageDialog(this, "Data berhasil diekspor ke " + fileToSave.getAbsolutePath()); 
+            } catch (IOException ex) { 
+                showError("Gagal menulis file: " + ex.getMessage()); 
+            } 
+        } 
+    } 
+    
+    private void importFromCSV() { 
+    showCSVGuide(); 
+ 
+    int confirm = JOptionPane.showConfirmDialog( 
+        this, 
+        "Apakah Anda yakin file CSV yang dipilih sudah sesuai dengan format?", 
+        "Konfirmasi Impor CSV", 
+        JOptionPane.YES_NO_OPTION 
+    ); 
+ 
+    if (confirm == JOptionPane.YES_OPTION) { 
+        JFileChooser fileChooser = new JFileChooser(); 
+        fileChooser.setDialogTitle("Pilih File CSV"); 
+        int userSelection = fileChooser.showOpenDialog(this); 
+ 
+        if (userSelection == JFileChooser.APPROVE_OPTION) { 
+            File fileToOpen = fileChooser.getSelectedFile(); 
+ 
+            try (BufferedReader reader = new BufferedReader(new FileReader(fileToOpen))) {
+                String line = reader.readLine(); // Baca header 
+                if (!validateCSVHeader(line)) { 
+                    JOptionPane.showMessageDialog(this, "Format header CSV tidak valid. Pastikan header adalah: ID,Nama,Nomor Telepon,Kategori", "Kesalahan CSV", JOptionPane.ERROR_MESSAGE); 
+                    return; 
+                } 
+ 
+                int rowCount = 0; 
+                int errorCount = 0; 
+                int duplicateCount = 0; 
+                StringBuilder errorLog = new StringBuilder("Baris dengan kesalahan:\n"); 
+                
+                        while ((line = reader.readLine()) != null) { 
+                    rowCount++; 
+                    String[] data = line.split(","); 
+ 
+                    if (data.length != 4) { 
+                        errorCount++; 
+                        errorLog.append("Baris ").append(rowCount + 
+1).append(": Format kolom tidak sesuai.\n"); 
+                        continue; 
+                    } 
+ 
+                    String nama = data[1].trim(); 
+                    String nomorTelepon = data[2].trim(); 
+                    String kategori = data[3].trim(); 
+ 
+                    if (nama.isEmpty() || nomorTelepon.isEmpty()) { 
+                        errorCount++; 
+                        errorLog.append("Baris ").append(rowCount + 
+1).append(": Nama atau Nomor Telepon kosong.\n"); 
+                        continue; 
+                    } 
+ 
+                    if (!validatePhoneNumber(nomorTelepon)) { 
+                        errorCount++; 
+                        errorLog.append("Baris ").append(rowCount + 
+1).append(": Nomor Telepon tidak valid.\n"); 
+                        continue; 
+                    } 
+ 
+                    try { 
+                        if 
+(controller.isDuplicatePhoneNumber(nomorTelepon, null)) { 
+                            duplicateCount++; 
+                            errorLog.append("Baris ").append(rowCount + 
+1).append(": Kontak sudah ada.\n"); 
+                            continue; 
+                        } 
+                    } catch (SQLException ex) { 
+                        
+Logger.getLogger(PengelolaanKontakFrame.class.getName()).log(Level.SEVERE
+ , null, ex); 
+                    } 
+ 
+                    try { 
+                        controller.addContact(nama, nomorTelepon, 
+kategori); 
+                    } catch (SQLException ex) { 
+                        errorCount++; 
+                        errorLog.append("Baris ").append(rowCount + 
+1).append(": Gagal menyimpan ke database - ").append(ex.getMessage()).append("\n"); 
+                    } 
+                } 
+ 
+                loadContacts(); 
+ 
+                if (errorCount > 0 || duplicateCount > 0) { 
+                    errorLog.append("\nTotal baris dengan kesalahan: ").append(errorCount).append("\n"); 
+                    errorLog.append("Total baris duplikat: ").append(duplicateCount).append("\n"); 
+                    JOptionPane.showMessageDialog(this, 
+errorLog.toString(), "Kesalahan Impor", JOptionPane.WARNING_MESSAGE); 
+                } else { 
+                    JOptionPane.showMessageDialog(this, "Semua data berhasil diimpor."); 
+                } 
+            } catch (IOException ex) { 
+                showError("Gagal membaca file: " + ex.getMessage()); 
+            } 
+        } 
+    } 
+} 
+ 
+private void showCSVGuide() { 
+    String guideMessage = "Format CSV untuk impor data:\n" + 
+        "- Header wajib: ID, Nama, Nomor Telepon, Kategori\n" + 
+        "- ID dapat kosong (akan diisi otomatis)\n" + 
+        "- Nama dan Nomor Telepon wajib diisi\n" + 
+        "- Contoh isi file CSV:\n" + 
+        "  1, Andi, 08123456789, Teman\n" + 
+        "  2, Budi Doremi, 08567890123, Keluarga\n\n" + 
+        "Pastikan file CSV sesuai format sebelum melakukan impor."; 
+    JOptionPane.showMessageDialog(this, guideMessage, "Panduan Format CSV", JOptionPane.INFORMATION_MESSAGE); 
+} 
+ 
+private boolean validateCSVHeader(String header) { 
+    return header != null && 
+header.trim().equalsIgnoreCase("ID,Nama,Nomor Telepon,Kategori"); 
+}
+
+    
 
     /**
      * @param args the command line arguments
@@ -432,6 +655,7 @@ public class PengelolaanKontakFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnImport;
     private javax.swing.JButton btnTambah;
     private javax.swing.JComboBox<String> cmbKategori;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
