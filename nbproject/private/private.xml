@@ -5,8 +5,10 @@
         <group>
             <file>file:/D:/KULIAH/SEMESTER%205/PBO%202/AplikasiPengelolaanKontak/src/database/DatabaseConnection.java</file>
             <file>file:/D:/KULIAH/SEMESTER%205/PBO%202/AplikasiPengelolaanKontak/src/database/DatabaseSetup.java</file>
-            <file>file:/D:/KULIAH/SEMESTER%205/PBO%202/AplikasiPengelolaanKontak/src/view/PengelolaanKontakFrame.java</file>
             <file>file:/D:/KULIAH/SEMESTER%205/PBO%202/AplikasiPengelolaanKontak/src/controller/KontakController.java</file>
+            <file>file:/D:/KULIAH/SEMESTER%205/PBO%202/AplikasiPengelolaanKontak/src/model/Kontak.java</file>
+            <file>file:/D:/KULIAH/SEMESTER%205/PBO%202/AplikasiPengelolaanKontak/src/model/KontakDAO.java</file>
+            <file>file:/D:/KULIAH/SEMESTER%205/PBO%202/AplikasiPengelolaanKontak/src/view/PengelolaanKontakFrame.java</file>
         </group>
     </open-files>
 </project-private>
